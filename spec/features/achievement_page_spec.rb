@@ -12,6 +12,6 @@ feature "achievement page" do
     achievement = create(:achievement, description: "That *was* hard")
     visit("achievements/#{achievement.id}")
 
-    expect(page).to have_content("<i>was</i>")
+    expect(page.html).to include('That <em>was</em> hard')
   end
 end

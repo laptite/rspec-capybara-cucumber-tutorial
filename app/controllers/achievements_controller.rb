@@ -23,7 +23,4 @@ class AchievementsController < ApplicationController
       params.require(:achievement).permit(:title, :description, :privacy, :featured, :cover_image)
     end
 
-    # def markdown
-    #   Redcarpet::Markdown.new(renderer, extensions = {})
-    # end
 end
