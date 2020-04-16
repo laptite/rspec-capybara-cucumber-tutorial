@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'haml', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.4'
 gem 'simple_form', '~> 5.0'
+gem 'redcarpet', '~> 3.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

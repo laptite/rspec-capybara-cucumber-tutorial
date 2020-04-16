@@ -1,2 +1,2 @@
 %h1= @achievement.title
-%p=@achievement.description
+%p= render 'description', description: @achievement.description
