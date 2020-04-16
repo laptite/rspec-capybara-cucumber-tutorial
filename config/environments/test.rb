@@ -6,7 +6,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.cache_classes = false
+  # These 2 settings address cucumber's warning:
+  # "You have set Rails' config.cache_classes to false"
+  config.cache_classes = true
+  config.autoloader = :classic
 
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that

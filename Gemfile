@@ -34,7 +34,7 @@ end
 
 group :test do
 	gem 'capybara', '~> 3.32'
-  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails', '~> 2.0', require: false
   gem 'database_cleaner', '~> 1.8'
 end
 

@@ -1,7 +1,7 @@
 module MarkdownHandler
   class << self
-    def call(template)
-      compiled_source = haml.call(template)
+    def call(template, source)
+      compiled_source = haml.call(template, source)
       "MarkdownHandler.render(begin;#{compiled_source};end)"
     end
 
