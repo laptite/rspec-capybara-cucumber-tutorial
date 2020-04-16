@@ -13,5 +13,6 @@ feature "achievement page" do
     visit("achievements/#{achievement.id}")
 
     expect(page.html).to include('That <em>was</em> hard')
+    expect(page).to have_css('em', text: 'was')
   end
 end
