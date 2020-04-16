@@ -16,3 +16,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+nav ul { list-style: none; }
+.navbar { background-color: #f5f5f5; border-radius: 0; }
+.navbar-nav { height: 50px; padding-top: 15px; padding-bottom: 15px; }
+.form-check-label { padding-left: 10px; }

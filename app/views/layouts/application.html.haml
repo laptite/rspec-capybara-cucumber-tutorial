@@ -1,0 +1,20 @@
+!!!
+%html
+	%head
+		%title RspecCapybaraCucumberTutorial
+		= csrf_meta_tags
+		= csp_meta_tag
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+		= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+	%body
+		%nav.navbar.navbar-expand-lg
+			.navbar-brand= link_to 'Test Tutorial', root_path
+			.collapse.navbar-collapse
+				%ul.navbar-nav
+					%li.nav-items
+						.nav-link= link_to 'New Achievement', new_achievement_path
+		
+		.container-fluid
+			- if flash[:notice]
+				.alert.alert-info= flash[:notice]
+			= yield
