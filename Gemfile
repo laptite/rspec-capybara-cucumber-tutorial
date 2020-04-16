@@ -20,7 +20,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.4'
-  gem 'factory_bot', '~> 4.8'
+  gem 'factory_bot_rails', '~> 5.1'
   gem 'spring-commands-rspec', '~> 1.0'
 end
 
