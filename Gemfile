@@ -36,6 +36,7 @@ group :test do
 	gem 'capybara', '~> 3.32'
   gem 'cucumber-rails', '~> 2.0', require: false
   gem 'database_cleaner', '~> 1.8'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
