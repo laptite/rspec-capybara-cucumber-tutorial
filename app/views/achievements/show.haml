@@ -1,2 +1,3 @@
 %h1= @achievement.title
 %p= render 'description', description: @achievement.description
+= link_to 'Edit', edit_achievement_path(@achievement), class: 'btn btn-primary'

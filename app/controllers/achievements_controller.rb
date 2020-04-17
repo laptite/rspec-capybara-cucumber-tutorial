@@ -1,16 +1,17 @@
 class AchievementsController < ApplicationController
-  before_action :find_achievement, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :owners_only, only: [:edit, :update, :destroy]
 
   def index
     @achievements = Achievement.global_access.order(created_at: :desc)    
   end
 
   def new
-    @achievement = Achievement.new
+    @achievement = current_user.achievements.build
   end
 
   def create
-    @achievement = Achievement.new(achievement_params)
+    @achievement = current_user.achievements.build(achievement_params)
     if @achievement.save
       redirect_to achievement_path(@achievement), notice: 'Achievement has been created'
     else
@@ -19,6 +20,7 @@ class AchievementsController < ApplicationController
   end
 
   def show
+    @achievement = Achievement.find(params[:id])
   end
 
   def edit
@@ -34,7 +36,7 @@ class AchievementsController < ApplicationController
 
   def destroy
     @achievement.destroy
-    redirect_to root_path
+    redirect_to achievements_path
   end
 
   private
@@ -45,6 +47,13 @@ class AchievementsController < ApplicationController
 
     def find_achievement
       @achievement = Achievement.find(params[:id])
+    end
+
+    def owners_only
+      @achievement = Achievement.find(params[:id])
+      if current_user != @achievement.user
+        redirect_to achievements_path
+      end
     end
 
 end

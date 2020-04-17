@@ -1,4 +1,4 @@
 - @achievements.each do |achievement|
-  %p= link_to achievement.title, achievement_path(achievement)
+  %h1= link_to achievement.title, achievement_path(achievement)
   %p= render 'description', description: achievement.description
   

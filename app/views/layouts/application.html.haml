@@ -13,8 +13,13 @@
 				%ul.navbar-nav
 					%li.nav-items
 						.nav-link= link_to 'New Achievement', new_achievement_path
-		
+				%ul.navbar-nav.pull-right
+					%li.nav-items
+						.nav-link= link_to 'Sign Out', destroy_user_session_path, method: :delete
 		.container-fluid
-			- if flash[:notice]
-				.alert.alert-info= flash[:notice]
+			- if notice
+				.alert.alert-info.notice= notice
+			- if alert
+				.alert.alert-info= alert
+
 			= yield
