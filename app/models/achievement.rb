@@ -6,4 +6,6 @@ class Achievement < ApplicationRecord
   def self.privacies_collection
     privacies.map { |k,v| [k.split('_').first.capitalize, k] }
   end
+
+  def self.get_public_achievements; end
 end
