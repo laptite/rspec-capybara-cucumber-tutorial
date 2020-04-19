@@ -3,7 +3,9 @@ require_relative '../support/new_achievement_form'
 
 feature "create new achievements", type: :feature do
   let(:user) { create(:user) }
-  before { sign_in user}
+  before do 
+    sign_in user
+  end
 
   let(:new_achievement_form) { NewAchievementForm.new }
 

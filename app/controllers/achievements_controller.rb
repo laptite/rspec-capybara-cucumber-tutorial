@@ -13,10 +13,10 @@ class AchievementsController < ApplicationController
   def create
     service = CreateAchievement.new(achievement_params, current_user)
     service.create
+    @achievement = service.achievement
     if service.created?
-      redirect_to achievement_path(service.achievement), notice: 'Achievement has been created'
+      redirect_to achievement_path(@achievement), notice: 'Achievement has been created'
     else
-      @achievement = service.achievement
       render :new
     end
   end
