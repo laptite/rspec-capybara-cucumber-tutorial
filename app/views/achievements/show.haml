@@ -1,3 +1,6 @@
 %h1= @achievement.title
 %p= render 'description', description: @achievement.description
+
+- if @achievement.cover_image && @achievement.cover_image.attached?
+  = image_tag(@achievement.cover_image) 
 = link_to 'Edit', edit_achievement_path(@achievement), class: 'btn btn-primary'

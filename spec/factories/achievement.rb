@@ -3,7 +3,7 @@ FactoryBot.define do
     title       { "Title" }
     description { "Description" }
     featured    { false }
-    cover_image { "test.png" }
+    cover_image { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'cover_image.jpg'), 'image/jpeg') }
 
     factory :global_achievement do 
       privacy { :global_access }

@@ -11,7 +11,7 @@ describe AchievementsController do
       end
 
       it "assigns only public achievements to template" do 
-        global_achievement = create(:global_achievement, user: user)
+        global_achievement = create(:global_achievement, user: user, title: "Title")
         admin_achievement = create(:admin_achievement, user: user)
         expect(assigns(:achievements)).to match_array([global_achievement])
       end

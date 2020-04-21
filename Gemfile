@@ -15,8 +15,11 @@ gem 'bootstrap-sass', '~> 3.4'
 gem 'simple_form', '~> 5.0'
 gem 'redcarpet', '~> 3.3'
 gem 'devise', '~> 4.7'
+gem 'vcr'
+gem 'twitter', '~> 7.0'
+gem 'active_model_serializers', '>=0.10.10'
 
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
