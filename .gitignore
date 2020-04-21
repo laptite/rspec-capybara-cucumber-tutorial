@@ -34,4 +34,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-services/*twitter_service
+/services/*
