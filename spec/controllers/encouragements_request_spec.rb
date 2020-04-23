@@ -71,6 +71,39 @@ RSpec.describe EncouragementsController do
   context 'POST create' do 
     let(:encouragement_params) { attributes_for(:encouragement) }
 
+    context 'authenticated user' do 
+      let(:user) { create(:user) }
+      let(:achievement) { create(:global_achievement, user: build(:user)) }
+      before { sign_in(user) }
+
+      context 'valid data' do 
+        it 'redirects back to achievements page' do 
+          post :create, params: { achievement_id: achievement.id, encouragement: encouragement_params }
+          expect(response).to redirect_to(achievement_path(achievement))
+        end
+
+        it 'assigns encouragement to current user and achievement' do 
+          post :create, params: { achievement_id: achievement.id, encouragement: encouragement_params }
+          encouragement = Encouragement.last
+          expect(encouragement.user).to eq(user)
+        end
+
+        it 'assigns flash message' do 
+          post :create, params: { achievement_id: achievement.id, encouragement: encouragement_params }
+          expect(flash[:notice]).to eq("Thanks for your encouragement!")
+        end
+      end
+
+      context 'invalid data' do 
+        let(:invalid_params) { attributes_for(:encouragement, message: nil)}
+
+        it 'renders :new template' do 
+          post :create, params: { achievement_id: achievement.id, encouragement: invalid_params }
+          expect(response).to render_template(:new)
+        end
+      end
+    end
+
     context 'guest user' do 
       it 'is redirected back to achievement page' do
         post :create, params: { achievement_id: achievement.id, encouragement: encouragement_params }
