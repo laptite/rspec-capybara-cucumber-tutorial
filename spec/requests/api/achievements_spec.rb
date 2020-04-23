@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Achievements API', type: :request do
 
+  before { Achievement.destroy_all }
+  
   it 'sends public achievements' do
     public_achievement  = create(:global_achievement, user: build(:user), title: "API achievement")
     private_achievement = create(:admin_achievement, user: build(:user))

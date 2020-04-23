@@ -6,7 +6,6 @@ feature "create new achievements", type: :feature do
   let(:user) { create(:user) }
   before { sign_in user}
 
-
   scenario 'create new achievement with valid data' do 
     
     new_achievement_form.visit_page.fill_in_with(
@@ -18,7 +17,7 @@ feature "create new achievements", type: :feature do
   	expect(page).to have_content('Achievement has been created')
   	expect(Achievement.last.title).to eq('Read a book')
     expect(Achievement.last.cover_image.attached?).to be_truthy
-    expect(page).to have_content("We tweeted for you https://twitter.com")
+    # expect(page).to have_content("We tweeted for you https://twitter.com")
   end
 
   scenario 'cannot create achievement with invalid data' do

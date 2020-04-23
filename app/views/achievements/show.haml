@@ -3,4 +3,15 @@
 
 - if @achievement.cover_image && @achievement.cover_image.attached?
   = image_tag(@achievement.cover_image) 
-= link_to 'Edit', edit_achievement_path(@achievement), class: 'btn btn-primary'
+
+.encouragement
+  %h2 
+    Encouragements
+    %span#encouragement-quantity= @achievement.encouragements.count
+
+  - @achievement.encouragements.each do |encouragement|
+    %li
+      = "Encouragement left by: #{encouragement.user.email}"
+      = "#{encouragement.message}"
+
+  = link_to "Encourage", new_achievement_encouragement_path(@achievement), id: 'encourage-button', class: 'btn btn-primary'

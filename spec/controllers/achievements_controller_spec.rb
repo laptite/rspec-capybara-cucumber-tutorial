@@ -4,9 +4,12 @@ describe AchievementsController do
 
   shared_examples "global access to achievements" do 
     describe "GET index" do 
-      before { get :index }
+      before do
+        Achievement.destroy_all
+        get :index
+      end
 
-      it "renders :index template" do 
+      it "renders :index template" do
         expect(response).to render_template(:index)
       end
 
